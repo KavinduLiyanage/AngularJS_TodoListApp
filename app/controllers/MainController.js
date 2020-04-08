@@ -1,9 +1,16 @@
-'use strict';
+
 
 app.controller('MainController',['$scope',$scope => {
 
-    $scope.list = ['task1','task2','task3'];
+    $scope.list = [];
     $scope.addItem = () => {
-        $scope.list.push($scope.addToDo);
+        $scope.list.push({toDo:$scope.addToDo,complete:false});
+    };
+    $scope.removeItem = () => {
+        let oldList = $scope.list;
+        $scope.list = [];
+        angular.forEach(oldList, (checked) => {
+            if(!checked.done) $scope.list.push(checked);
+        });
     }
 }]);
