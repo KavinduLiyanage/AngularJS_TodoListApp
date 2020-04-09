@@ -1,5 +1,3 @@
-
-
 app.controller('MainController',['$scope',$scope => {
 
     $scope.list = [];
